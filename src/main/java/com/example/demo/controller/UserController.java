@@ -5,6 +5,8 @@ import com.example.demo.model.base.EmptyResponse;
 import com.example.demo.model.request.*;
 import com.example.demo.model.response.*;
 import com.example.demo.service.*;
+import com.example.demo.webservice.model.MockApiResponse;
+import com.example.demo.webservice.service.MockApiService;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -17,13 +19,15 @@ public class UserController {
     private final GetUserService getUserService;
     private final GetUsersService getUsersService;
     private final UpdateUserService updateUserService;
+    private final MockApiService mockApiService;
 
-    public UserController(CreateUserService createUserService, DeleteUserService deleteUserService, GetUserService getUserService, GetUsersService getUsersService, UpdateUserService updateUserService) {
+    public UserController(CreateUserService createUserService, DeleteUserService deleteUserService, GetUserService getUserService, GetUsersService getUsersService, UpdateUserService updateUserService, MockApiService mockApiService) {
         this.createUserService = createUserService;
         this.deleteUserService = deleteUserService;
         this.getUserService = getUserService;
         this.getUsersService = getUsersService;
         this.updateUserService = updateUserService;
+        this.mockApiService = mockApiService;
     }
 
     @PostMapping(value = "/user", produces = "application/json")
@@ -50,4 +54,10 @@ public class UserController {
     public UpdateUserResponse updateUser(@RequestBody UpdateUserRequest request) {
         return updateUserService.execute(request);
     }
+
+    @GetMapping("/resttemplate")
+    public MockApiResponse getProfileFromWeb() {
+        return mockApiService.getProfileFromWeb(new EmptyRequest());
+    }
+
 }

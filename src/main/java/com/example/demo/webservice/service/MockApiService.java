@@ -2,6 +2,7 @@ package com.example.demo.webservice.service;
 
 import com.example.demo.model.base.EmptyRequest;
 import com.example.demo.model.base.EmptyResponse;
+import com.example.demo.webservice.model.MockApiResponse;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpMethod;
 import org.springframework.stereotype.Service;
@@ -17,12 +18,12 @@ public class MockApiService {
     }
 
 
-    public EmptyResponse getProfileFromWeb(EmptyRequest request){
+    public MockApiResponse getProfileFromWeb(EmptyRequest request){
         return restTemplate.exchange(
           "https://run.mocky.io/v3/59395df1-3538-4ae2-bf2b-2ac42c448085",
                 HttpMethod.GET,
                 new HttpEntity<>(request),
-                EmptyResponse.class
+                MockApiResponse.class
         ).getBody();
     }
 }
