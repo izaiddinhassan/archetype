@@ -16,6 +16,7 @@ public class MockApiService {
         this.restTemplate = restTemplate;
     }
 
+
     public EmptyResponse getProfileFromWeb(EmptyRequest request){
         return restTemplate.exchange(
           "https://run.mocky.io/v3/59395df1-3538-4ae2-bf2b-2ac42c448085",
