@@ -7,9 +7,8 @@ import com.example.demo.model.response.*;
 import com.example.demo.service.*;
 import com.example.demo.webservice.model.MockApiResponse;
 import com.example.demo.webservice.service.MockApiService;
+import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.*;
-
-import javax.validation.Valid;
 
 @RestController
 public class UserController {

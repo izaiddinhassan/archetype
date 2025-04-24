@@ -1,9 +1,9 @@
 package com.example.demo.model.request;
 
 import com.example.demo.model.base.BaseRequest;
+import jakarta.validation.constraints.NotBlank;
 import lombok.*;
 
-import javax.validation.constraints.NotBlank;
 import java.io.Serializable;
 
 @Data
