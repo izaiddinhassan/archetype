@@ -1,4 +1,4 @@
-package com.example.demo.webservice.model;
+package com.example.demo.adaptor.model;
 
 import com.example.demo.model.base.BaseResponse;
 import lombok.*;

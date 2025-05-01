@@ -1,22 +1,20 @@
-package com.example.demo.webservice.service;
+package com.example.demo.adaptor.service;
 
 import com.example.demo.model.base.EmptyRequest;
-import com.example.demo.model.base.EmptyResponse;
-import com.example.demo.webservice.model.MockApiResponse;
+import com.example.demo.adaptor.model.MockApiResponse;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpMethod;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
 @Service
-public class MockApiService {
+public class MockApiAdaptor {
 
     private final RestTemplate restTemplate;
 
-    public MockApiService(RestTemplate restTemplate) {
+    public MockApiAdaptor(RestTemplate restTemplate) {
         this.restTemplate = restTemplate;
     }
-
 
     public MockApiResponse getProfileFromWeb(EmptyRequest request){
         return restTemplate.exchange(

@@ -1,5 +1,6 @@
 server:
   port: 8081
+
 spring:
   datasource:
     url: ${MYSQL_URL}
@@ -12,10 +13,14 @@ spring:
     properties:
       hibernate:
         dialect: org.hibernate.dialect.MySQLDialect
-# request response logging
-logging:
-  level:
-    org.zalando.logbook: TRACE
-#  file:
-#    path: .
-#    name: myapp.log
+  flyway:
+    enabled: true
+    url: ${MYSQL_URL}
+    user: ${MYSQL_USERNAME}
+    password: ${MYSQL_PASSWORD}
+    locations: classpath:db/migration
+
+rest:
+  template:
+    connect-timeout: 5  # seconds
+    read-timeout: 10    # seconds
